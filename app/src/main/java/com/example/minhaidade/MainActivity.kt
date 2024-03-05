@@ -60,8 +60,8 @@ fun MeuComponente() {
             text = "25",
             fontSize = 48.sp,
             color = Color.Red,
-
-
+            textAlign = TextAlign.Center,
+            modifier = Modifier.fillMaxWidth()
         )
         Row() {
             Button(onClick = { /*TODO*/ }) {
