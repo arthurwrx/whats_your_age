@@ -32,6 +32,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -70,16 +71,16 @@ fun MeuComponente() {
     ) {
         Text(
             text = "Qual a sua idade?",
-            color = Color.Red,
+            color = Color(0xFF0000FF),
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
             //modifier = Modifier.fillMaxWidth()
         )
         Text(
-            text = "Pressione os botões para informar a sua idade",
+            text = "Aperte os botões para informar a sua idade",
             fontSize = 12.sp,
-            color = Color.Blue,
+            color = Color.Black,
             textAlign = TextAlign.Center,
             //modifier = Modifier.fillMaxWidth()
         )
@@ -87,7 +88,8 @@ fun MeuComponente() {
         Text(
             text = "${idade.value}",
             fontSize = 48.sp,
-            color = Color.Red,
+            color = Color.Black,
+            fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
             modifier = Modifier.fillMaxWidth()
         )
@@ -100,9 +102,12 @@ fun MeuComponente() {
         ) {
             Button(onClick = {
                 idade.value--
+                if (idade.value < 0){
+                    idade.value = 0
+                }
                 Log.i("FIAP2","Meu componente: $idade")
             },
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF88c6a5)),
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF0000FF)),
                 modifier = Modifier.size(84.dp),
                 shape = RoundedCornerShape(8.dp),
             ) {
@@ -116,13 +121,35 @@ fun MeuComponente() {
                 idade.value++
                 Log.i("FIAP","Meu componente: $idade")
             },
-                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF88c6a5)),
+                colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF0000FF)),
                 modifier = Modifier.size(84.dp),
                 shape = RoundedCornerShape(8.dp),
 
-            ) {
+                ) {
                 Text(text = "+",
                     fontSize = 40.sp)
+            }
+        }
+
+        Column() {
+            Spacer(modifier = Modifier.height(10.dp))
+
+            if (idade.value >= 18) {
+                Text(text = "Você é maior de Idade!",
+                    fontSize = 24.sp,
+                    color = Color.Black,
+                    fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.fillMaxWidth())
+            }
+
+            if (idade.value < 18) {
+                Text(text = "Você é menor de idade!",
+                    fontSize = 24.sp,
+                    color = Color.Black,
+                    fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.fillMaxWidth())
             }
         }
     }
