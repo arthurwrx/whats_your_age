@@ -7,9 +7,13 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
@@ -46,24 +50,27 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MeuComponente() {
-    Column(horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Bottom) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+        modifier = Modifier.fillMaxHeight()
+    ) {
         Text(
             text = "Qual a sua idade?",
             color = Color.Red,
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.fillMaxWidth(),
             textAlign = TextAlign.Center,
-
+            //modifier = Modifier.fillMaxWidth()
         )
         Text(
             text = "Pressione os botões para informar a sua idade",
             fontSize = 12.sp,
             color = Color.Blue,
-            modifier = Modifier.fillMaxWidth(),
             textAlign = TextAlign.Center,
+            //modifier = Modifier.fillMaxWidth()
         )
+        Spacer(modifier = Modifier.height(25.dp))
         Text(
             text = "25",
             fontSize = 48.sp,
@@ -71,9 +78,13 @@ fun MeuComponente() {
             textAlign = TextAlign.Center,
             modifier = Modifier.fillMaxWidth()
         )
+        Spacer(modifier = Modifier.height(25.dp))
 
-        Row(horizontalArrangement = Arrangement.Center,
-            modifier = Modifier.fillMaxWidth()) {
+        Row(
+            horizontalArrangement = Arrangement.Center,
+            modifier = Modifier.fillMaxWidth()
+
+        ) {
             Button(onClick = { /*TODO*/ },
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF88c6a5)),
                 modifier = Modifier.size(84.dp),
@@ -81,6 +92,9 @@ fun MeuComponente() {
             ) {
                 Text(text = "-")
             }
+
+            Spacer(modifier = Modifier.width(50.dp))
+
             Button(onClick = { /*TODO*/ },
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF88c6a5)),
                 modifier = Modifier.size(84.dp),
@@ -91,6 +105,7 @@ fun MeuComponente() {
         }
     }
 }
+
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun MeuComponentePreview() {
