@@ -2,9 +2,11 @@ package com.example.minhaidade
 
 import android.os.Bundle
 import android.util.Log
+import android.view.RoundedCorner
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,9 +17,12 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Shapes
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -99,9 +104,10 @@ fun MeuComponente() {
             },
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF88c6a5)),
                 modifier = Modifier.size(84.dp),
-                shape = RectangleShape
+                shape = RoundedCornerShape(8.dp),
             ) {
-                Text(text = "-")
+                Text(text = "-",
+                    fontSize = 40.sp)
             }
 
             Spacer(modifier = Modifier.width(50.dp))
@@ -112,9 +118,11 @@ fun MeuComponente() {
             },
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF88c6a5)),
                 modifier = Modifier.size(84.dp),
-                shape = RectangleShape
+                shape = RoundedCornerShape(8.dp),
+
             ) {
-                Text(text = "+")
+                Text(text = "+",
+                    fontSize = 40.sp)
             }
         }
     }
